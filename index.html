@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Travel Planner - Ticket Booking</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7f6;
+            color: #333;
+        }
+
+        header {
+            background: #174c45;
+            color: white;
+            text-align: center;
+            padding: 35px 15px;
+        }
+
+        header h1 {
+            margin-bottom: 12px;
+        }
+
+        .trip {
+            background: white;
+            max-width: 850px;
+            margin: 25px auto;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            padding: 15px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            margin-bottom: 18px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #00000010;
+        }
+
+        .card h2 {
+            color: #174c45;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #174c45;
+            color: white;
+            padding: 11px 20px;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        .btn:hover {
+            background: #246b60;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>✈️ Travel Ticket Booking</h1>
+        <p>Your journey, your way!</p>
+    </header>
+
+    <div class="trip">
+        <h2>Your Trip Details</h2>
+        <p id="tripDetails">Loading your trip details...</p>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <h2>🚌 Bus Tickets</h2>
+            <p>Find and book buses for your journey.</p>
+            <a class="btn" id="busLink" href="https://www.redbus.in/" target="_blank">
+                Book Bus
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>🚆 Train Tickets</h2>
+            <p>Search for available trains and tickets.</p>
+            <a class="btn" href="https://www.irctc.co.in/" target="_blank">
+                Book Train
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>✈️ Flight Tickets</h2>
+            <p>Explore flight options for your destination.</p>
+            <a class="btn" id="flightLink" href="https://www.google.com/travel/flights" target="_blank">
+                Book Flight
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>🎡 Sightseeing</h2>
+            <p>Explore tourist attractions at your destination.</p>
+            <a class="btn" id="placesLink" href="#" target="_blank">
+                Explore Places
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Thank you for choosing AI Travel Planner ❤️</p>
+    </footer>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        const from = params.get("from") || "Not specified";
+        const destination = params.get("destination") || "Not specified";
+        const travellers = params.get("travellers") || "Not specified";
+        const days = params.get("days") || "Not specified";
+
+        document.getElementById("tripDetails").textContent =
+            `${from} → ${destination} | ${travellers} Travellers | ${days} Days`;
+
+        document.getElementById("busLink").href =
+            "https://www.redbus.in/";
+
+        document.getElementById("flightLink").href =
+            "https://www.google.com/travel/flights";
+
+        document.getElementById("placesLink").href =
+            "https://www.google.com/search?q=" +
+            encodeURIComponent(destination + " tourist places");
+    </script>
+
+</body>
+</html>
